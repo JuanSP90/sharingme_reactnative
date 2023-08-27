@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.sharingme_reactnative"
+    namespace "com.sharing"
     defaultConfig {
-        applicationId "com.sharingme_reactnative"
+        applicationId "com.sharing"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

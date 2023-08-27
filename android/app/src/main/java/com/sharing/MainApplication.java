@@ -1,4 +1,4 @@
-package com.sharingme_reactnative;
+package com.sharing;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
