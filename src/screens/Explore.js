@@ -4,6 +4,7 @@ import axios from 'axios'
 
 
 import ExploreUserCard from '../components/ExploreUserCard/ExploreUserCard'
+import ExploreCard from '../components/ExploreUserCard/ExploreCard'
 
 const Explore = () => {
     const [users, setUsers] = useState([]);
@@ -27,7 +28,7 @@ const Explore = () => {
             <Text>Hola estas en Explore</Text>
             <FlatList
                 data={users}
-                renderItem={({ item }) => <ExploreUserCard user={item} />}
+                renderItem={({ item }) => <ExploreCard user={item} />}
                 keyExtractor={users.id}
             />
         </View>
