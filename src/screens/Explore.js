@@ -1,42 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, FlatList } from 'react-native'
+import axios from 'axios'
+
 
 import ExploreUserCard from '../components/ExploreUserCard/ExploreUserCard'
 
 const Explore = () => {
-    const user = [
-        {
-            id: 1,
-            userName: 'Juan',
-            location: 'Estepona',
-            tag1: 'hola',
-            tag2: 'adios',
-            tag3: 'cucu'
-        },
-        {
-            id: 2,
-            userName: 'Pepe',
-            location: 'Marbella',
-            tag1: 'hafdsaa',
-            tag2: 'adifadsfa',
-            tag3: 'cufsafdsau'
-        },
-        {
-            id: 3,
-            userName: 'Manolete',
-            location: 'Manoletelandia',
-            tag1: 'holdasaa',
-            tag2: 'aasadios',
-            tag3: 'cuasacu'
-        },
-    ]
+    const [users, setUsers] = useState([]);
+    // const URLBACKEND = Config.URL_BACKEND;
+    // console.log('del url', URLBACKEND)
+    useEffect(() => {
+        getAllUsers();
+    }, []);
+
+    const getAllUsers = async () => {
+        try {
+            const response = await axios.get(`https://sharingmeb.onrender.com/users/`);
+            setUsers(response.data);
+        } catch (error) {
+            console.error('Error al obtener los usuarios', error);
+        }
+    };
+
     return (
         <View>
             <Text>Hola estas en Explore</Text>
             <FlatList
-                data={user}
+                data={users}
                 renderItem={({ item }) => <ExploreUserCard user={item} />}
-                keyExtractor={user.id}
+                keyExtractor={users.id}
             />
         </View>
     )
